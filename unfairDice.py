@@ -4,10 +4,6 @@ import random
 import math
 
 
-
-
-
-
 def biased_rolls(prob_list, s, n): 
     """ Simulate n rolls of a biased m-sided die and return
     a list containing the results. 
@@ -81,7 +77,7 @@ def draw_histogram(m, rolls, width=20):
         occurances[i] *= width
         str_hist += str(i + 1) + ". "
         for j in range(width):
-            if j <= occurances[i]:
+            if j < occurances[i]:
                 str_hist += "#"
             else:
                 str_hist += "-"
@@ -91,24 +87,49 @@ def draw_histogram(m, rolls, width=20):
 
 
 def argfind(data_list, value):
+    """ Finds all the positions of a certain value
+    in a list
+
+    Arguments:
+        data_list (list): A list of type int, float, string, char, or bool
+        value: A value within the list to be found
+
+    Returns:
+        (list): list of indexes of where the element was in the data_list
+    """
     return [i for i, j in enumerate(data_list) if j == value]
 
 
 def softmax(values):
-    
+    """ Computes the softmax of the list of values
+
+    Arguments:
+        values (list): A list of type int or float
+
+    Returns:
+        values (list): A list of type float where all values
+	sum up to 1
+    """
     sum_values = 0
     for i in values:
         sum_values += i
     
     for i in range(len(values)):
-        values[i] /= sum_values
+        values[i] = float(values[i])/float(sum_values)
     return values
     
 def max_norm(values):
+    """ Normalizes the list of values with the maximum value equalling 1
 
+    Argument:
+        values (list): A list of type float or int
+
+    Returns:
+        values (list): A list of type float where all the values are divided by the max
+    """
     max_value = max(values)
     for i in range(len(values)):
-        values[i] /= max_value
+        values[i] = float(values[i]) / float(max_value)
     return values    
 
 
@@ -118,3 +139,4 @@ if __name__ == "__main__":
     # when the program is called directly from the terminal
     # using "python3 unfairDice.py". This can be useful for
     # testing your implementations.
+    pass
