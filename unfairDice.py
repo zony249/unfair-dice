@@ -1,8 +1,12 @@
-# UNFAIR DICE TEMPLATE: REPLACE THIS LINE WITH YOUR FILE HEADER
+# =========================================
+# Name: Yu, Zong Lin 
+# ID: 1614934
+# Course: CMPUT 274
+# Assignment: Assignment 2 -- Unfair Dice
+# Acknowledgements: None
+# =========================================
 
 import random
-import math
-
 
 def biased_rolls(prob_list, s, n): 
     """ Simulate n rolls of a biased m-sided die and return
@@ -63,7 +67,6 @@ def draw_histogram(m, rolls, width=20):
     Returns:
         None (but prints the histogram to standard output)
     """
-
 
     occurances = []
     for i in range(1, m + 1):
